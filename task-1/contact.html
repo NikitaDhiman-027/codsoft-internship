@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome CDN for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+ /* Basic Resets */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Navbar Styling */
+nav {
+    display: flex;
+    background-color: #41054ea8;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    width: 100%;
+    flex-wrap: wrap; /* Allows wrapping on small screens */
+}
+
+nav img {
+    height: 50px;
+    width: auto;
+}
+
+.navbar {
+    list-style-type: none;
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+    flex-wrap: wrap; /* Allows wrapping on small screens */
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    background-color: #fff;
+    color: #333;
+}
+
+/* Main Container Styling */
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: auto; /* Changed from fixed height to auto */
+    background: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    flex-wrap: wrap; /* Allows wrapping for responsiveness */
+}
+
+.contact-container,
+.image-container {
+    flex: 1;
+    width: 100%;
+    max-width: 50%; /* Limits the width on larger screens */
+}
+
+.contact-container {
+    color: aliceblue;
+}
+
+.contact-container h1 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 24px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    color: #bbb;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #555;
+    color: #fff;
+    font-size: 14px;
+}
+
+input[type="submit"] {
+    background: #eeba2c;
+    color: #333;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background: #d9a520;
+}
+
+.image-container {
+    padding-left: 20px;
+}
+
+.image-container img {
+    width: 100%;
+    border-radius: 10px;
+    animation: jump 1s ease-in-out infinite;
+}
+
+/* Jump Animation */
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Footer Styling */
+footer {
+    margin-top: 20px;
+    background: linear-gradient(to right, #752288, rgba(9, 126, 126, 0.712));
+    color: #f4f2f2;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    padding: 20px 0;
+    width: 100%; /* Ensures footer takes full width */
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allows wrapping for responsiveness */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-container div {
+    flex: 1;
+    margin: 10px; /* Adjusted margin for spacing */
+}
+
+.footer-container h2 {
+    text-align: left;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.footer-container p,
+.footer-container ul,
+.footer-container li {
+    margin-bottom: 10px;
+}
+
+.footer-container a {
+    color: #f4f2f2;
+    text-decoration: none;
+}
+
+.footer-container a:hover {
+    text-decoration: underline;
+}
+
+.social-media {
+    margin-bottom: 10px;
+}
+
+.social-media a {
+    display: inline-block;
+    padding: 10px; /* Reduced padding for smaller screens */
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 18px;
+}
+
+.footer-bottom {
+    background-color: #99a8b9;
+    color: #0a0909;
+    text-align: center;
+    font-size: 0.9em;
+    padding: 10px; /* Added padding for spacing */
+    width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        justify-content: center;
+    }
+
+    .main-container {
+        flex-direction: column;
+    }
+
+    .contact-container,
+    .image-container {
+        max-width: 100%;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .social-media a {
+        padding: 15px; /* Adjusted padding for smaller screens */
+    }
+}
+
+
+    </style>
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault(); 
+            window.location.href = 'thankyou.html';
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <img src="logo.png" alt="Logo">
+        <ul class="navbar">
+            <li><a href="new.html">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="main-container">
+        <div class="contact-container">
+            <h1>Contact Us</h1>
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name"><i class="fas fa-user"></i> Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your name.." required>
+                </div>
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your email.." required>
+                </div>
+                <div class="form-group">
+                    <label for="subject"><i class="fas fa-tag"></i> Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="Subject.." required>
+                </div>
+                <div class="form-group">
+                    <label for="message"><i class="fas fa-comment"></i> Message</label>
+                    <textarea id="message" name="message" placeholder="Write something.." style="height:100px" required></textarea>
+                </div>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="image-container">
+            <img src="love letter.png" alt="Contact Image">
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="about-me">
+                <h2>About Me</h2>
+                <p>Hello, I'm Nikita Dhiman, a passionate Full Stack Developer with experience in creating dynamic and responsive web applications.</p>
+                <div class="social-media">
+                    <a href="https://github.com/NikitaDhiman-027" target="_blank" class="social-icon github"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/nikita027/" target="_blank" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://instagram.com/neekeeta_027" target="_blank" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://facebook.com/yourusername" target="_blank" class="social-icon facebook"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+            <div class="quick-links">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="contact">
+                <h2>Contact</h2>
+                <ul>
+                    <li><span>Address:</span> Samalkha, Haryana</li>
+                    <li><span>Email:</span> <a href="mailto:nikudhiman01@gmail.com">nikudhiman01@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ND. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
